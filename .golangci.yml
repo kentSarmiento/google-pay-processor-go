@@ -1,0 +1,36 @@
+# golangci-lint configuration
+run:
+  timeout: 5m
+  tests: true
+  
+linters:
+  enable:
+    - gofmt
+    - govet
+    - errcheck
+    - staticcheck
+    - gosimple
+    - ineffassign
+    - unused
+    - typecheck
+    - gocyclo
+    - misspell
+    - unconvert
+    - dupl
+    - gosec
+    - goconst
+    - exportloopref
+
+linters-settings:
+  gocyclo:
+    min-complexity: 15
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
