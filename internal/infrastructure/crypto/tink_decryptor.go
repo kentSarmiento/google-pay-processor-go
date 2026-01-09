@@ -77,7 +77,7 @@ func (t *TinkDecryptor) Decrypt(ctx context.Context, token *domain.GooglePayToke
 func (t *TinkDecryptor) verifySignature(token *domain.GooglePayToken) error {
 	// In production, you would verify the signature using Google's root signing keys
 	// This is a simplified implementation
-	
+
 	// Decode signature
 	signatureBytes, err := base64.StdEncoding.DecodeString(token.Signature)
 	if err != nil {
@@ -98,10 +98,10 @@ func (t *TinkDecryptor) verifyECDSASignature(message string, sig []byte, interme
 	// 1. Load Google's root signing keys
 	// 2. Verify the intermediate signing key against root keys
 	// 3. Use the intermediate key to verify the message signature
-	
+
 	// For now, we'll create a basic verifier to demonstrate the structure
 	// In production, replace this with actual Google root key verification
-	
+
 	t.logger.Debug("Verifying ECDSA signature", map[string]interface{}{
 		"has_intermediate_key": intermediateKey != nil,
 	})
@@ -155,16 +155,16 @@ func (t *TinkDecryptor) performHybridDecryption(ciphertext, ephemeralKey, tag []
 	// 1. Load the merchant's private key (stored securely)
 	// 2. Use Tink's ECIES (Elliptic Curve Integrated Encryption Scheme) to decrypt
 	// 3. Verify the authentication tag
-	
+
 	// For demonstration purposes, we'll show the structure:
 	// In real implementation, you'd have:
 	// - Private key handle from key management system
 	// - Proper ECIES configuration matching Google Pay specs
-	
+
 	t.logger.Debug("Performing hybrid decryption", map[string]interface{}{
-		"ciphertext_len":      len(ciphertext),
-		"ephemeral_key_len":   len(ephemeralKey),
-		"tag_len":             len(tag),
+		"ciphertext_len":    len(ciphertext),
+		"ephemeral_key_len": len(ephemeralKey),
+		"tag_len":           len(tag),
 	})
 
 	// Placeholder: Return a mock decrypted message structure
@@ -184,11 +184,11 @@ func (t *TinkDecryptor) performHybridDecryption(ciphertext, ephemeralKey, tag []
 func LoadMerchantPrivateKey(keyData []byte) (*keyset.Handle, error) {
 	// In production, load from secure key storage (KMS, Vault, etc.)
 	// This is a placeholder showing the structure
-	
+
 	// Example with Tink:
 	// handle, err := keyset.Read(keyset.NewJSONReader(bytes.NewReader(keyData)), aead)
 	// where aead is a master key for encrypting the keyset
-	
+
 	// For now, return a generated hybrid decrypt keyset for demonstration
 	return keyset.NewHandle(hybrid.ECIESHKDFAES128GCMKeyTemplate())
 }
@@ -200,11 +200,11 @@ func VerifyGoogleRootKeys(environment string) error {
 	// 1. Fetch Google's root signing keys from their public endpoint
 	// 2. Verify the keys are properly signed
 	// 3. Cache them for signature verification
-	
+
 	// Google's signing keys are available at:
 	// Production: https://payments.developers.google.com/paymentmethodtoken/keys.json
 	// Test: https://payments.developers.google.com/paymentmethodtoken/test/keys.json
-	
+
 	return nil
 }
 
@@ -213,7 +213,7 @@ func createSignatureVerifier(publicKeyData []byte) error {
 	// In production, use Tink's signature verification
 	handle, err := keyset.Read(
 		keyset.NewJSONReader(nil), // Replace with actual reader
-		nil, // No master key needed for public keys
+		nil,                       // No master key needed for public keys
 	)
 	if err != nil {
 		return err

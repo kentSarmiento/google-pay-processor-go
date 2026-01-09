@@ -10,11 +10,11 @@ import (
 
 // Config holds application configuration
 type Config struct {
-	Server   ServerConfig
+	Server    ServerConfig
 	GooglePay GooglePayConfig
-	Payment  PaymentConfig
-	Logging  LoggingConfig
-	Metrics  MetricsConfig
+	Payment   PaymentConfig
+	Logging   LoggingConfig
+	Metrics   MetricsConfig
 }
 
 // ServerConfig holds server configuration
@@ -27,11 +27,11 @@ type ServerConfig struct {
 
 // GooglePayConfig holds Google Pay specific configuration
 type GooglePayConfig struct {
-	MerchantID          string
-	MerchantName        string
-	ProtocolVersion     string
-	SigningKeys         []string
-	Environment         string // PRODUCTION or TEST
+	MerchantID      string
+	MerchantName    string
+	ProtocolVersion string
+	SigningKeys     []string
+	Environment     string // PRODUCTION or TEST
 }
 
 // PaymentConfig holds payment processor configuration

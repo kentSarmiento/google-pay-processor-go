@@ -14,10 +14,10 @@ func TestLoadConfig(t *testing.T) {
 		{
 			name: "valid configuration",
 			envVars: map[string]string{
-				"GOOGLEPAY_MERCHANT_ID":   "merchant-123",
-				"GOOGLEPAY_ENVIRONMENT":   "TEST",
-				"PAYMENT_PROCESSOR_URL":   "https://processor.example.com",
-				"SERVER_PORT":             "8080",
+				"GOOGLEPAY_MERCHANT_ID": "merchant-123",
+				"GOOGLEPAY_ENVIRONMENT": "TEST",
+				"PAYMENT_PROCESSOR_URL": "https://processor.example.com",
+				"SERVER_PORT":           "8080",
 			},
 			expectError: false,
 		},

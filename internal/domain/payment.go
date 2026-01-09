@@ -6,17 +6,17 @@ import (
 
 // PaymentRequest represents a decrypted payment request from Google Pay
 type PaymentRequest struct {
-	CardNumber       string
-	ExpiryMonth      int
-	ExpiryYear       int
-	CVV              string
-	CardholderName   string
-	BillingAddress   *Address
-	Amount           int64
-	Currency         string
-	MerchantID       string
-	TransactionID    string
-	Timestamp        time.Time
+	CardNumber     string
+	ExpiryMonth    int
+	ExpiryYear     int
+	CVV            string
+	CardholderName string
+	BillingAddress *Address
+	Amount         int64
+	Currency       string
+	MerchantID     string
+	TransactionID  string
+	Timestamp      time.Time
 }
 
 // Address represents a billing or shipping address
@@ -31,31 +31,31 @@ type Address struct {
 
 // PaymentResponse represents the result of a payment processing attempt
 type PaymentResponse struct {
-	TransactionID    string
-	Status           PaymentStatus
-	AuthorizationID  string
-	ProcessedAt      time.Time
-	ErrorMessage     string
-	ErrorCode        string
+	TransactionID   string
+	Status          PaymentStatus
+	AuthorizationID string
+	ProcessedAt     time.Time
+	ErrorMessage    string
+	ErrorCode       string
 }
 
 // PaymentStatus represents the status of a payment
 type PaymentStatus string
 
 const (
-	PaymentStatusSuccess   PaymentStatus = "SUCCESS"
-	PaymentStatusFailed    PaymentStatus = "FAILED"
-	PaymentStatusPending   PaymentStatus = "PENDING"
-	PaymentStatusDeclined  PaymentStatus = "DECLINED"
-	PaymentStatusError     PaymentStatus = "ERROR"
+	PaymentStatusSuccess  PaymentStatus = "SUCCESS"
+	PaymentStatusFailed   PaymentStatus = "FAILED"
+	PaymentStatusPending  PaymentStatus = "PENDING"
+	PaymentStatusDeclined PaymentStatus = "DECLINED"
+	PaymentStatusError    PaymentStatus = "ERROR"
 )
 
 // GooglePayToken represents the encrypted token from Google Pay
 type GooglePayToken struct {
-	Signature                  string `json:"signature"`
-	ProtocolVersion            string `json:"protocolVersion"`
-	SignedMessage              string `json:"signedMessage"`
-	IntermediateSigningKey     *IntermediateSigningKey `json:"intermediateSigningKey,omitempty"`
+	Signature              string                  `json:"signature"`
+	ProtocolVersion        string                  `json:"protocolVersion"`
+	SignedMessage          string                  `json:"signedMessage"`
+	IntermediateSigningKey *IntermediateSigningKey `json:"intermediateSigningKey,omitempty"`
 }
 
 // IntermediateSigningKey represents the intermediate signing key in the token
@@ -73,8 +73,8 @@ type SignedMessage struct {
 
 // PaymentMethodDetails represents the decrypted payment details
 type PaymentMethodDetails struct {
-	PAN              string `json:"pan"`
-	ExpirationMonth  int    `json:"expirationMonth"`
-	ExpirationYear   int    `json:"expirationYear"`
-	AuthMethod       string `json:"authMethod"`
+	PAN             string `json:"pan"`
+	ExpirationMonth int    `json:"expirationMonth"`
+	ExpirationYear  int    `json:"expirationYear"`
+	AuthMethod      string `json:"authMethod"`
 }

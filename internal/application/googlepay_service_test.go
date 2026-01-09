@@ -50,7 +50,7 @@ func (m *mockLogger) Fatal(msg string, fields map[string]interface{}) {}
 
 type mockMetrics struct{}
 
-func (m *mockMetrics) IncrementCounter(name string, labels map[string]string)                  {}
+func (m *mockMetrics) IncrementCounter(name string, labels map[string]string)                 {}
 func (m *mockMetrics) RecordDuration(name string, duration float64, labels map[string]string) {}
 func (m *mockMetrics) SetGauge(name string, value float64, labels map[string]string)          {}
 

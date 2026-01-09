@@ -41,7 +41,7 @@ func (s *GooglePayService) ProcessGooglePayToken(
 	transactionID string,
 ) (*domain.PaymentResponse, error) {
 	startTime := time.Now()
-	
+
 	s.logger.Info("Processing Google Pay token", map[string]interface{}{
 		"transaction_id": transactionID,
 		"merchant_id":    merchantID,
@@ -80,14 +80,14 @@ func (s *GooglePayService) ProcessGooglePayToken(
 
 	// Build payment request
 	paymentRequest := &domain.PaymentRequest{
-		CardNumber:     paymentDetails.PAN,
-		ExpiryMonth:    paymentDetails.ExpirationMonth,
-		ExpiryYear:     paymentDetails.ExpirationYear,
-		Amount:         amount,
-		Currency:       currency,
-		MerchantID:     merchantID,
-		TransactionID:  transactionID,
-		Timestamp:      time.Now(),
+		CardNumber:    paymentDetails.PAN,
+		ExpiryMonth:   paymentDetails.ExpirationMonth,
+		ExpiryYear:    paymentDetails.ExpirationYear,
+		Amount:        amount,
+		Currency:      currency,
+		MerchantID:    merchantID,
+		TransactionID: transactionID,
+		Timestamp:     time.Now(),
 	}
 
 	// Process payment through the card payment processor

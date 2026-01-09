@@ -47,7 +47,7 @@ type ProcessPaymentResponse struct {
 // ProcessPayment handles Google Pay payment processing requests
 func (h *Handler) ProcessPayment(w http.ResponseWriter, r *http.Request) {
 	startTime := time.Now()
-	
+
 	h.metrics.IncrementCounter("http_requests_total", map[string]string{
 		"endpoint": "/api/v1/googlepay/process",
 		"method":   r.Method,

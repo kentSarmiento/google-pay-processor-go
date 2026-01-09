@@ -27,10 +27,10 @@ type Logger interface {
 type MetricsCollector interface {
 	// IncrementCounter increments a counter metric
 	IncrementCounter(name string, labels map[string]string)
-	
+
 	// RecordDuration records a duration metric
 	RecordDuration(name string, duration float64, labels map[string]string)
-	
+
 	// SetGauge sets a gauge metric
 	SetGauge(name string, value float64, labels map[string]string)
 }

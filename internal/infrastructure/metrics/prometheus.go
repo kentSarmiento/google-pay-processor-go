@@ -1,9 +1,9 @@
 package metrics
 
 import (
+	"github.com/kentSarmiento/google-pay-processor-go/internal/domain"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
-	"github.com/kentSarmiento/google-pay-processor-go/internal/domain"
 )
 
 // PrometheusCollector implements the domain.MetricsCollector interface

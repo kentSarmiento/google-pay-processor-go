@@ -4,8 +4,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/rs/zerolog"
 	"github.com/kentSarmiento/google-pay-processor-go/internal/domain"
+	"github.com/rs/zerolog"
 )
 
 // ZerologLogger implements the domain.Logger interface using zerolog

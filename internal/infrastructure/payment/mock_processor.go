@@ -43,7 +43,7 @@ func (m *MockCardProcessor) Process(ctx context.Context, request *domain.Payment
 
 	// Simulate payment processing
 	// In production, this would make API calls to the actual payment processor
-	
+
 	// Generate authorization ID
 	authID := uuid.New().String()
 
